@@ -44,7 +44,7 @@
 @synthesize currentEvent = _currentEvent;
 @synthesize authToken = _authToken;
 
-#define BUTTON_HEIGHT 40
+#define BUTTON_HEIGHT 120
 #define BUTTON_WIDTH 250
 #define BUTTON_SPACER 10
 #define BUTTON_OFFSET_X (320-BUTTON_WIDTH)/2
@@ -320,7 +320,7 @@
 {
     //Save the auth token
     //todo: check if incorrect information
-    self.authToken = [API loginWithEmail:@"nikil@stanford.edu" andPassword:@"tara"];
+    self.authToken = [API loginWithEmail:@"test@gmail.com" andPassword:@"Hithere"];
     
     NSDictionary *currentStatus = [API getInformation:self.authToken];
     
