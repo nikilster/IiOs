@@ -41,6 +41,7 @@
 #define RESULT_DATA_ACTIVITIES          @"activities"
 #define RESULT_DATA_COMPLETED_EVENTS    @"completedEvents"
 #define RESULT_DATA_CURRENT_EVENT       @"currentEvent"
+#define RESULT_DATA_PERCENTAGES         @"percentages"
 
 //For activities
 #define ACTIVITY_NAME                   @"name"
@@ -53,6 +54,11 @@
 #define EVENT_ACTIVITY_ID               @"activityId"
 #define EVENT_ACTIVITY_NAME             @"activityName"
 #define EVENT_ACTIVITY_START_TIME       @"startTime"
+
+
+//For Percentages
+#define PERCENTAGE_ACTIVITY_ID          @"id"
+#define PERCENTAGE_ACTIVITY_PERCENTAGE  @"percentage"
 
 @interface APIConstants : NSObject
 

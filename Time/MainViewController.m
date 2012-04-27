@@ -30,6 +30,7 @@
 //After I
 @property (strong, nonatomic) NSArray *activities;
 @property (strong, nonatomic) NSDictionary *currentEvent;
+@property (strong, nonatomic) NSArray *percentages;
 
 @end
 
@@ -43,10 +44,11 @@
 @synthesize activities = _activities;
 @synthesize currentEvent = _currentEvent;
 @synthesize authToken = _authToken;
+@synthesize percentages = _percentages;
 
 #define BUTTON_HEIGHT 120
 #define BUTTON_WIDTH 250
-#define BUTTON_SPACER 10
+#define BUTTON_SPACER 0
 #define BUTTON_OFFSET_X (320-BUTTON_WIDTH)/2
 #define BUTTON_OFFSET_Y 140
 
@@ -236,6 +238,27 @@
     return coordinates;
 }
 
+/*
+ 
+    Progress for activity
+ 
+    Gets the current progress based on the current percentages
+ 
+ */
+
+- (double)progressForActivity:(NSDictionary *)activity
+{
+    //Find the activity
+    for(NSDictionary *result in self.percentages)
+    {
+        //TODO: make sure (is currnetly a number)
+        if([[result objectForKey:PERCENTAGE_ACTIVITY_ID] isEqualToString:[activity objectForKey:ACTIVITY_ID]])
+            return [[result objectForKey:PERCENTAGE_ACTIVITY_PERCENTAGE] intValue];
+    }
+    
+    return 0;
+}
+
 
 /*
     Add Activities
@@ -264,7 +287,7 @@
         [activityButton setTag:i];
         
         //TODO: set the progress
-        [activityButton setProgress:1];
+        [activityButton setProgress:[self progressForActivity:activity]/100.0];
 
         
         //Add click handler
@@ -304,6 +327,7 @@
     self.activities = [currentStatus objectForKey:RESULT_DATA_ACTIVITIES];
     NSArray *completedEvents = [currentStatus objectForKey:RESULT_DATA_COMPLETED_EVENTS];
     self.currentEvent = [currentStatus objectForKey:RESULT_DATA_CURRENT_EVENT];
+    self.percentages = [currentStatus objectForKey:RESULT_DATA_PERCENTAGES];
     
     [self setupScrollView:[self.activities count]];
     [self addActivities:self.activities];
