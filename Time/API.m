@@ -131,4 +131,22 @@
     
     return [result boolValue];
 }
+
+/*
+    Finish Current Activity
+ 
+    
+*/
++(BOOL)finishActivity:(NSString *)authToken
+{
+    NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
+                             API_FUNCTION_STOP_EVENT, API_ARG_FUNCTION,
+                             authToken, API_ARG_AUTH_TOKEN,nil];
+    
+    //Make request
+    NSNumber *result = (NSNumber *)[API makeAPICall:request];
+    
+    return [result boolValue];
+}
+
 @end

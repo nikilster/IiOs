@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "API.h"
 #import "APIConstants.h"
+#import "CircularProgressButton.h"
 
 @interface MainViewController()
 
@@ -160,10 +161,13 @@
     //Stop Timer
     [self stopTimer];
     
+    //Stop Activity
+    [API finishActivity:self.authToken];
+
     //Set label
     self.currentEventLabel.text = @"I am doing nothing";
     
-}
+   }
 
 /*
     Activity Clicked
@@ -174,7 +178,7 @@
 - (void)activityClicked:(UIButton *)sender
 {
     int activityIndex = [sender tag];
-    
+    NSLog(@"Click on the outmost level");
     //Start activity
     [self startActivity:activityIndex];
 }
@@ -208,6 +212,29 @@
     [self beginTimer:startTime];
 }
 
+/*
+ 
+    Get Progress Indicator Coordinates
+    
+    calculates the coordinates for the progress buttons
+ 
+ */
+- (CGPoint)getProgressIndicatorCoordinates:(int)index
+{
+    CGPoint coordinates;
+    
+    //If odd
+    if(index % 2 == 1) 
+        coordinates.x = 35;
+    else 
+        coordinates.x = 185;
+    
+    int verticalIndex = index/2;
+    
+    coordinates.y = BUTTON_OFFSET_Y + verticalIndex*150;
+    
+    return coordinates;
+}
 
 
 /*
@@ -224,14 +251,21 @@
         NSDictionary *activity = [activities objectAtIndex:i];
         
         //Create button
-        UIButton *activityButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-
-        //Set frame and title
-        activityButton.frame = CGRectMake(BUTTON_OFFSET_X, BUTTON_OFFSET_Y + i*(BUTTON_HEIGHT+BUTTON_SPACER), BUTTON_WIDTH, BUTTON_HEIGHT);
-        [activityButton setTitle:[activity objectForKey:ACTIVITY_NAME] forState:UIControlStateNormal];
+        CircularProgressButton *activityButton = [[CircularProgressButton alloc] init];
         
+        //Set frame
+        CGPoint position = [self getProgressIndicatorCoordinates:i];
+        activityButton.frame = CGRectMake(position.x, position.y, activityButton.frame.size.width, activityButton.frame.size.height);
+        
+        //Set title
+        activityButton.text = [activity objectForKey:ACTIVITY_NAME];
+
         //TODO: store the activity id
         [activityButton setTag:i];
+        
+        //TODO: set the progress
+        [activityButton setProgress:1];
+
         
         //Add click handler
         [activityButton addTarget:self action:@selector(activityClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -240,6 +274,8 @@
         [self.scrollView addSubview:activityButton];
     }
 }
+
+
 
 /*
     Setup Scroll View

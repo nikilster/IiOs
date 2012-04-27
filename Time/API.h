@@ -21,4 +21,7 @@
 +(BOOL)startActivity:(NSString *)activityId
              withAuthToken:(NSString *)authToken;
 
+//Stop Activity
++(BOOL)finishActivity:(NSString *)authToken;
+
 @end

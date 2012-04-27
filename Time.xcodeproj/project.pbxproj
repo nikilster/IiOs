@@ -25,6 +25,13 @@
 		90E650041540B29F00D4BCDF /* APIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E650031540B29F00D4BCDF /* APIConstants.m */; };
 		90E6500F1540B44B00D4BCDF /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E6500E1540B44B00D4BCDF /* API.m */; };
 		90EE41B41541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EE41B31541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png */; };
+		90EE41C2154A568500E01DB0 /* CircularProgressButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EE41BF154A568500E01DB0 /* CircularProgressButton.m */; };
+		90EE41C3154A568500E01DB0 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EE41C1154A568500E01DB0 /* CircularProgressView.m */; };
+		90EE41C7154A569300E01DB0 /* background_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EE41C4154A569300E01DB0 /* background_sel.png */; };
+		90EE41C8154A569300E01DB0 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EE41C5154A569300E01DB0 /* background.png */; };
+		90EE41C9154A569300E01DB0 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EE41C6154A569300E01DB0 /* circle.png */; };
+		90EE41CA154A58F700E01DB0 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EE41C1154A568500E01DB0 /* CircularProgressView.m */; };
+		90EE41CB154A58FD00E01DB0 /* CircularProgressButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EE41BF154A568500E01DB0 /* CircularProgressButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,11 +67,18 @@
 		90A3DF3B152E6F500061F6C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90A3DF3D152E6F500061F6C5 /* TimeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeTests.h; sourceTree = "<group>"; };
 		90A3DF3E152E6F500061F6C5 /* TimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeTests.m; sourceTree = "<group>"; };
-		90E650021540B29F00D4BCDF /* APIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIConstants.h; path = "../../../../Fun/Time iOs/Time/Time/APIConstants.h"; sourceTree = "<group>"; };
-		90E650031540B29F00D4BCDF /* APIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIConstants.m; path = "../../../../Fun/Time iOs/Time/Time/APIConstants.m"; sourceTree = "<group>"; };
-		90E6500D1540B44B00D4BCDF /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = API.h; path = "../../../../Fun/Time iOs/Time/Time/API.h"; sourceTree = "<group>"; };
-		90E6500E1540B44B00D4BCDF /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = API.m; path = "../../../../Fun/Time iOs/Time/Time/API.m"; sourceTree = "<group>"; };
+		90E650021540B29F00D4BCDF /* APIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIConstants.h; sourceTree = "<group>"; };
+		90E650031540B29F00D4BCDF /* APIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIConstants.m; sourceTree = "<group>"; };
+		90E6500D1540B44B00D4BCDF /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		90E6500E1540B44B00D4BCDF /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		90EE41B31541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios_newsstand_wood_background_by_ebara-d45h8fy.png"; sourceTree = "<group>"; };
+		90EE41BE154A568500E01DB0 /* CircularProgressButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressButton.h; sourceTree = "<group>"; };
+		90EE41BF154A568500E01DB0 /* CircularProgressButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressButton.m; sourceTree = "<group>"; };
+		90EE41C0154A568500E01DB0 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
+		90EE41C1154A568500E01DB0 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
+		90EE41C4154A569300E01DB0 /* background_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_sel.png; sourceTree = "<group>"; };
+		90EE41C5154A569300E01DB0 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		90EE41C6154A569300E01DB0 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,19 +138,13 @@
 		90A3DF16152E6F500061F6C5 /* Time */ = {
 			isa = PBXGroup;
 			children = (
-				90E650021540B29F00D4BCDF /* APIConstants.h */,
-				90E650031540B29F00D4BCDF /* APIConstants.m */,
-				90A3DF1F152E6F500061F6C5 /* TimeAppDelegate.h */,
-				90A3DF20152E6F500061F6C5 /* TimeAppDelegate.m */,
+				90EE41D2154A5DD800E01DB0 /* Images */,
+				90EE41D0154A5DB600E01DB0 /* API */,
+				90EE41BC154A567400E01DB0 /* Progress Bar */,
 				90A3DF22152E6F500061F6C5 /* MainStoryboard_iPhone.storyboard */,
 				90A3DF25152E6F500061F6C5 /* MainStoryboard_iPad.storyboard */,
-				90A3DF28152E6F500061F6C5 /* TimeViewController.h */,
-				90A3DF29152E6F500061F6C5 /* TimeViewController.m */,
 				9003BAF91534F07F00667033 /* MainViewController.h */,
 				9003BAFA1534F07F00667033 /* MainViewController.m */,
-				90EE41B31541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png */,
-				90E6500D1540B44B00D4BCDF /* API.h */,
-				90E6500E1540B44B00D4BCDF /* API.m */,
 				90A3DF17152E6F500061F6C5 /* Supporting Files */,
 			);
 			path = Time;
@@ -145,6 +153,10 @@
 		90A3DF17152E6F500061F6C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				90A3DF1F152E6F500061F6C5 /* TimeAppDelegate.h */,
+				90A3DF20152E6F500061F6C5 /* TimeAppDelegate.m */,
+				90A3DF28152E6F500061F6C5 /* TimeViewController.h */,
+				90A3DF29152E6F500061F6C5 /* TimeViewController.m */,
 				90A3DF18152E6F500061F6C5 /* Time-Info.plist */,
 				90A3DF19152E6F500061F6C5 /* InfoPlist.strings */,
 				90A3DF1C152E6F500061F6C5 /* main.m */,
@@ -170,6 +182,39 @@
 				90A3DF3A152E6F500061F6C5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90EE41BC154A567400E01DB0 /* Progress Bar */ = {
+			isa = PBXGroup;
+			children = (
+				90EE41C4154A569300E01DB0 /* background_sel.png */,
+				90EE41C5154A569300E01DB0 /* background.png */,
+				90EE41C6154A569300E01DB0 /* circle.png */,
+				90EE41BE154A568500E01DB0 /* CircularProgressButton.h */,
+				90EE41BF154A568500E01DB0 /* CircularProgressButton.m */,
+				90EE41C0154A568500E01DB0 /* CircularProgressView.h */,
+				90EE41C1154A568500E01DB0 /* CircularProgressView.m */,
+			);
+			name = "Progress Bar";
+			sourceTree = "<group>";
+		};
+		90EE41D0154A5DB600E01DB0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				90E6500D1540B44B00D4BCDF /* API.h */,
+				90E6500E1540B44B00D4BCDF /* API.m */,
+				90E650021540B29F00D4BCDF /* APIConstants.h */,
+				90E650031540B29F00D4BCDF /* APIConstants.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		90EE41D2154A5DD800E01DB0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				90EE41B31541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +291,9 @@
 				90A3DF24152E6F500061F6C5 /* MainStoryboard_iPhone.storyboard in Resources */,
 				90A3DF27152E6F500061F6C5 /* MainStoryboard_iPad.storyboard in Resources */,
 				90EE41B41541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png in Resources */,
+				90EE41C7154A569300E01DB0 /* background_sel.png in Resources */,
+				90EE41C8154A569300E01DB0 /* background.png in Resources */,
+				90EE41C9154A569300E01DB0 /* circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +328,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90EE41CB154A58FD00E01DB0 /* CircularProgressButton.m in Sources */,
+				90EE41CA154A58F700E01DB0 /* CircularProgressView.m in Sources */,
 				90A3DF1D152E6F500061F6C5 /* main.m in Sources */,
 				90A3DF21152E6F500061F6C5 /* TimeAppDelegate.m in Sources */,
 				90A3DF2A152E6F500061F6C5 /* TimeViewController.m in Sources */,
@@ -294,6 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				90A3DF3F152E6F500061F6C5 /* TimeTests.m in Sources */,
+				90EE41C2154A568500E01DB0 /* CircularProgressButton.m in Sources */,
+				90EE41C3154A568500E01DB0 /* CircularProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
