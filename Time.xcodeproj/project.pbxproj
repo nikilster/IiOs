@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9003BAFB1534F07F00667033 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9003BAFA1534F07F00667033 /* MainViewController.m */; };
 		90A3DF11152E6F500061F6C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF10152E6F500061F6C5 /* UIKit.framework */; };
 		90A3DF13152E6F500061F6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF12152E6F500061F6C5 /* Foundation.framework */; };
 		90A3DF15152E6F500061F6C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF14152E6F500061F6C5 /* CoreGraphics.framework */; };
@@ -21,6 +22,9 @@
 		90A3DF34152E6F500061F6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF12152E6F500061F6C5 /* Foundation.framework */; };
 		90A3DF3C152E6F500061F6C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90A3DF3A152E6F500061F6C5 /* InfoPlist.strings */; };
 		90A3DF3F152E6F500061F6C5 /* TimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A3DF3E152E6F500061F6C5 /* TimeTests.m */; };
+		90E650041540B29F00D4BCDF /* APIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E650031540B29F00D4BCDF /* APIConstants.m */; };
+		90E6500F1540B44B00D4BCDF /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E6500E1540B44B00D4BCDF /* API.m */; };
+		90EE41B41541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EE41B31541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,26 +38,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9003BAF91534F07F00667033 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		9003BAFA1534F07F00667033 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		90A3DF0C152E6F500061F6C5 /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A3DF10152E6F500061F6C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		90A3DF12152E6F500061F6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		90A3DF14152E6F500061F6C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		90A3DF18152E6F500061F6C5 /* Time-Info.plist */ = {isa = PBXFileReference; path = "Time-Info.plist"; sourceTree = "<group>"; };
+		90A3DF18152E6F500061F6C5 /* Time-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Time-Info.plist"; sourceTree = "<group>"; };
 		90A3DF1A152E6F500061F6C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90A3DF1C152E6F500061F6C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		90A3DF1E152E6F500061F6C5 /* Time-Prefix.pch */ = {isa = PBXFileReference; path = "Time-Prefix.pch"; sourceTree = "<group>"; };
-		90A3DF1F152E6F500061F6C5 /* TimeAppDelegate.h */ = {isa = PBXFileReference; path = TimeAppDelegate.h; sourceTree = "<group>"; };
+		90A3DF1E152E6F500061F6C5 /* Time-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Time-Prefix.pch"; sourceTree = "<group>"; };
+		90A3DF1F152E6F500061F6C5 /* TimeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeAppDelegate.h; sourceTree = "<group>"; };
 		90A3DF20152E6F500061F6C5 /* TimeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeAppDelegate.m; sourceTree = "<group>"; };
 		90A3DF23152E6F500061F6C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		90A3DF26152E6F500061F6C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		90A3DF28152E6F500061F6C5 /* TimeViewController.h */ = {isa = PBXFileReference; path = TimeViewController.h; sourceTree = "<group>"; };
+		90A3DF28152E6F500061F6C5 /* TimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeViewController.h; sourceTree = "<group>"; };
 		90A3DF29152E6F500061F6C5 /* TimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeViewController.m; sourceTree = "<group>"; };
 		90A3DF30152E6F500061F6C5 /* TimeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A3DF31152E6F500061F6C5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		90A3DF39152E6F500061F6C5 /* TimeTests-Info.plist */ = {isa = PBXFileReference; path = "TimeTests-Info.plist"; sourceTree = "<group>"; };
+		90A3DF39152E6F500061F6C5 /* TimeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TimeTests-Info.plist"; sourceTree = "<group>"; };
 		90A3DF3B152E6F500061F6C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		90A3DF3D152E6F500061F6C5 /* TimeTests.h */ = {isa = PBXFileReference; path = TimeTests.h; sourceTree = "<group>"; };
+		90A3DF3D152E6F500061F6C5 /* TimeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeTests.h; sourceTree = "<group>"; };
 		90A3DF3E152E6F500061F6C5 /* TimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeTests.m; sourceTree = "<group>"; };
+		90E650021540B29F00D4BCDF /* APIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIConstants.h; path = "../../../../Fun/Time iOs/Time/Time/APIConstants.h"; sourceTree = "<group>"; };
+		90E650031540B29F00D4BCDF /* APIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIConstants.m; path = "../../../../Fun/Time iOs/Time/Time/APIConstants.m"; sourceTree = "<group>"; };
+		90E6500D1540B44B00D4BCDF /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = API.h; path = "../../../../Fun/Time iOs/Time/Time/API.h"; sourceTree = "<group>"; };
+		90E6500E1540B44B00D4BCDF /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = API.m; path = "../../../../Fun/Time iOs/Time/Time/API.m"; sourceTree = "<group>"; };
+		90EE41B31541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios_newsstand_wood_background_by_ebara-d45h8fy.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,12 +124,19 @@
 		90A3DF16152E6F500061F6C5 /* Time */ = {
 			isa = PBXGroup;
 			children = (
+				90E650021540B29F00D4BCDF /* APIConstants.h */,
+				90E650031540B29F00D4BCDF /* APIConstants.m */,
 				90A3DF1F152E6F500061F6C5 /* TimeAppDelegate.h */,
 				90A3DF20152E6F500061F6C5 /* TimeAppDelegate.m */,
 				90A3DF22152E6F500061F6C5 /* MainStoryboard_iPhone.storyboard */,
 				90A3DF25152E6F500061F6C5 /* MainStoryboard_iPad.storyboard */,
 				90A3DF28152E6F500061F6C5 /* TimeViewController.h */,
 				90A3DF29152E6F500061F6C5 /* TimeViewController.m */,
+				9003BAF91534F07F00667033 /* MainViewController.h */,
+				9003BAFA1534F07F00667033 /* MainViewController.m */,
+				90EE41B31541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png */,
+				90E6500D1540B44B00D4BCDF /* API.h */,
+				90E6500E1540B44B00D4BCDF /* API.m */,
 				90A3DF17152E6F500061F6C5 /* Supporting Files */,
 			);
 			path = Time;
@@ -199,7 +217,7 @@
 		90A3DF03152E6F500061F6C5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 90A3DF06152E6F500061F6C5 /* Build configuration list for PBXProject "Time" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -227,6 +245,7 @@
 				90A3DF1B152E6F500061F6C5 /* InfoPlist.strings in Resources */,
 				90A3DF24152E6F500061F6C5 /* MainStoryboard_iPhone.storyboard in Resources */,
 				90A3DF27152E6F500061F6C5 /* MainStoryboard_iPad.storyboard in Resources */,
+				90EE41B41541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +283,9 @@
 				90A3DF1D152E6F500061F6C5 /* main.m in Sources */,
 				90A3DF21152E6F500061F6C5 /* TimeAppDelegate.m in Sources */,
 				90A3DF2A152E6F500061F6C5 /* TimeViewController.m in Sources */,
+				9003BAFB1534F07F00667033 /* MainViewController.m in Sources */,
+				90E650041540B29F00D4BCDF /* APIConstants.m in Sources */,
+				90E6500F1540B44B00D4BCDF /* API.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +465,7 @@
 				90A3DF44152E6F500061F6C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90A3DF45152E6F500061F6C5 /* Build configuration list for PBXNativeTarget "TimeTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +474,7 @@
 				90A3DF47152E6F500061F6C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
