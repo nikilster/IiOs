@@ -18,10 +18,10 @@
 + (NSDictionary *)getInformation:(NSString *)authToken;
 
 //Start Activity
-+(BOOL)startActivity:(NSString *)activityId
++(NSDictionary *)startActivity:(NSString *)activityId
              withAuthToken:(NSString *)authToken;
 
 //Stop Activity
-+(BOOL)finishActivity:(NSString *)authToken;
++(BOOL)finishEvent:(NSString *)eventId withAuthToken:(NSString *)authToken;
 
 @end

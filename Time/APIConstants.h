@@ -31,6 +31,9 @@
 //Result keys
 #define RESULT_KEY_API_RESULT           @"apiResult"
 #define RESULT_KEY_DATA                 @"data"
+//Start Activity                    
+#define RESULT_START_ACTIVITY           @"result"
+#define RESULT_CURRENT_RUNNING_EVENT    @"currentRunningEvent"
 
 //Individual results
 //Login

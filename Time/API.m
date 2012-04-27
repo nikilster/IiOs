@@ -115,7 +115,7 @@
 /*
     Start Activity
  */
-+(BOOL)startActivity:(NSString *)activityId
++(NSDictionary *)startActivity:(NSString *)activityId
              withAuthToken:(NSString *)authToken
 {
     NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -125,11 +125,11 @@
     
     //Make Request
     //TODO: what happens on the error boolean 
-    NSNumber *result = (NSNumber *)[API makeAPICall:request];
+    NSDictionary *result = [API makeAPICall:request];
     
-    //NSCFBoolean
+    //
     
-    return [result boolValue];
+    return result;
 }
 
 /*
@@ -137,15 +137,18 @@
  
     
 */
-+(BOOL)finishActivity:(NSString *)authToken
++(BOOL)finishEvent:(NSString *)eventId 
+     withAuthToken:(NSString *)authToken;
 {
     NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
                              API_FUNCTION_STOP_EVENT, API_ARG_FUNCTION,
+                             eventId, API_ARG_EVENT_ID,
                              authToken, API_ARG_AUTH_TOKEN,nil];
     
     //Make request
     NSNumber *result = (NSNumber *)[API makeAPICall:request];
     
+    //NSCFBoolean
     return [result boolValue];
 }
 

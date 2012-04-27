@@ -46,6 +46,11 @@
     textLabel.text = newText;
 }
 
+- (NSString *)text
+{
+    return textLabel.text;
+}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     isClicked = FALSE;

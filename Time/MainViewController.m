@@ -139,7 +139,9 @@
     
     NSString *activityId = [[self.activities objectAtIndex:activityIndex] objectForKey:ACTIVITY_ID];
     
-    BOOL result = [API startActivity:activityId withAuthToken:self.authToken];
+    NSDictionary *response = [API startActivity:activityId withAuthToken:self.authToken];
+    
+    BOOL result = [(NSNumber *)[response objectForKey:RESULT_START_ACTIVITY] boolValue];
     
     //check
     if(!result) 
@@ -148,7 +150,13 @@
         return;
     }
     
-    //Good!
+    //Good! - Success starting activity!    
+    self.currentEvent = [response objectForKey:RESULT_CURRENT_RUNNING_EVENT];
+    
+    //This will proably never happen (only if someons on the same account hit clicks stop between the two function calls in the apidb
+    //Set to nice null
+    if([self.currentEvent isKindOfClass:[NSNull class]])//[
+        self.currentEvent = nil;
     
     //Setup
     NSString *activityName = [[self.activities objectAtIndex:activityIndex] objectForKey:ACTIVITY_NAME];
@@ -160,12 +168,23 @@
 
 - (IBAction)finishClicked {
     
+    //Only do something if there is a current running event
+    if(!self.currentEvent) return;
+    
     //Stop Timer
     [self stopTimer];
     
     //Stop Activity
-    [API finishActivity:self.authToken];
-
+    NSString *eventId = [self.currentEvent objectForKey:EVENT_ID];
+    BOOL result = [API finishEvent:eventId withAuthToken:self.authToken];
+    
+    //No Current Event!
+    self.currentEvent = nil;
+    
+    //Check
+    if(!result)
+        NSLog(@"Error with stopping event!");
+    
     //Set label
     self.currentEventLabel.text = @"I am doing nothing";
     
@@ -195,7 +214,9 @@
 - (void)startCurrentEvent:(NSDictionary *)currentEvent
 {
     //If the event is null - return
-    if([currentEvent isKindOfClass:[NSNull class]])
+    //if([currentEvent isKindOfClass:[NSNull class]])
+        //return;
+    if(!currentEvent)
         return;
     
     //Set label
@@ -314,7 +335,6 @@
 
 
 
-
 /*
     Setup Display
 
@@ -325,8 +345,12 @@
 {
     //Get the data
     self.activities = [currentStatus objectForKey:RESULT_DATA_ACTIVITIES];
-    NSArray *completedEvents = [currentStatus objectForKey:RESULT_DATA_COMPLETED_EVENTS];
+    //NSArray *completedEvents = [currentStatus objectForKey:RESULT_DATA_COMPLETED_EVENTS];
     self.currentEvent = [currentStatus objectForKey:RESULT_DATA_CURRENT_EVENT];
+    //Translate to iOs Nil
+    if([self.currentEvent isKindOfClass:[NSNull class]])
+        self.currentEvent = nil;
+    
     self.percentages = [currentStatus objectForKey:RESULT_DATA_PERCENTAGES];
     
     [self setupScrollView:[self.activities count]];

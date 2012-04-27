@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9003BAFB1534F07F00667033 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9003BAFA1534F07F00667033 /* MainViewController.m */; };
+		90774BE8154A74D400549F37 /* buttonBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 90774BE7154A74D400549F37 /* buttonBlue.png */; };
+		90774BEB154A758800549F37 /* selectedButtonBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 90774BEA154A758800549F37 /* selectedButtonBlue.png */; };
 		90A3DF11152E6F500061F6C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF10152E6F500061F6C5 /* UIKit.framework */; };
 		90A3DF13152E6F500061F6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF12152E6F500061F6C5 /* Foundation.framework */; };
 		90A3DF15152E6F500061F6C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF14152E6F500061F6C5 /* CoreGraphics.framework */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		9003BAF91534F07F00667033 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9003BAFA1534F07F00667033 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		90774BE7154A74D400549F37 /* buttonBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBlue.png; sourceTree = "<group>"; };
+		90774BEA154A758800549F37 /* selectedButtonBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedButtonBlue.png; sourceTree = "<group>"; };
 		90A3DF0C152E6F500061F6C5 /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A3DF10152E6F500061F6C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		90A3DF12152E6F500061F6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -212,6 +216,8 @@
 		90EE41D2154A5DD800E01DB0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				90774BEA154A758800549F37 /* selectedButtonBlue.png */,
+				90774BE7154A74D400549F37 /* buttonBlue.png */,
 				90EE41B31541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png */,
 			);
 			name = Images;
@@ -294,6 +300,8 @@
 				90EE41C7154A569300E01DB0 /* background_sel.png in Resources */,
 				90EE41C8154A569300E01DB0 /* background.png in Resources */,
 				90EE41C9154A569300E01DB0 /* circle.png in Resources */,
+				90774BE8154A74D400549F37 /* buttonBlue.png in Resources */,
+				90774BEB154A758800549F37 /* selectedButtonBlue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
