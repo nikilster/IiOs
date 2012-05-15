@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		9003BAFB1534F07F00667033 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9003BAFA1534F07F00667033 /* MainViewController.m */; };
+		902408E8155C9A2000C4C7BA /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 902408E7155C9A2000C4C7BA /* Activity.m */; };
+		906E4AD9155C90BF00604930 /* Assistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E4AD8155C90BE00604930 /* Assistant.m */; };
 		90774BE8154A74D400549F37 /* buttonBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 90774BE7154A74D400549F37 /* buttonBlue.png */; };
 		90774BEB154A758800549F37 /* selectedButtonBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 90774BEA154A758800549F37 /* selectedButtonBlue.png */; };
+		907ED37715521731008AB2CA /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907ED37615521731008AB2CA /* AuthenticationViewController.m */; };
+		907ED389155300F0008AB2CA /* wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 907ED388155300F0008AB2CA /* wood.jpg */; };
+		907ED38C15530181008AB2CA /* sandpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 907ED38B15530181008AB2CA /* sandpaper.jpg */; };
+		907ED397155306D9008AB2CA /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 907ED396155306D9008AB2CA /* Util.m */; };
 		90A3DF11152E6F500061F6C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF10152E6F500061F6C5 /* UIKit.framework */; };
 		90A3DF13152E6F500061F6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF12152E6F500061F6C5 /* Foundation.framework */; };
 		90A3DF15152E6F500061F6C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A3DF14152E6F500061F6C5 /* CoreGraphics.framework */; };
@@ -49,8 +55,18 @@
 /* Begin PBXFileReference section */
 		9003BAF91534F07F00667033 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9003BAFA1534F07F00667033 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		902408E6155C9A2000C4C7BA /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		902408E7155C9A2000C4C7BA /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		906E4AD7155C90BE00604930 /* Assistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assistant.h; sourceTree = "<group>"; };
+		906E4AD8155C90BE00604930 /* Assistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assistant.m; sourceTree = "<group>"; };
 		90774BE7154A74D400549F37 /* buttonBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBlue.png; sourceTree = "<group>"; };
 		90774BEA154A758800549F37 /* selectedButtonBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedButtonBlue.png; sourceTree = "<group>"; };
+		907ED37515521731008AB2CA /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
+		907ED37615521731008AB2CA /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		907ED388155300F0008AB2CA /* wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood.jpg; sourceTree = "<group>"; };
+		907ED38B15530181008AB2CA /* sandpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sandpaper.jpg; sourceTree = "<group>"; };
+		907ED395155306D9008AB2CA /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		907ED396155306D9008AB2CA /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		90A3DF0C152E6F500061F6C5 /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A3DF10152E6F500061F6C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		90A3DF12152E6F500061F6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,6 +125,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		902408EA155CA3C300C4C7BA /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				902408E6155C9A2000C4C7BA /* Activity.h */,
+				902408E7155C9A2000C4C7BA /* Activity.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
+		902408EB155CA3C800C4C7BA /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				902408EA155CA3C300C4C7BA /* Activity */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		906E4ADA155C90CC00604930 /* Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				906E4AD7155C90BE00604930 /* Assistant.h */,
+				906E4AD8155C90BE00604930 /* Assistant.m */,
+			);
+			name = Assistant;
+			sourceTree = "<group>";
+		};
+		906E4ADB155C90D600604930 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				907ED37515521731008AB2CA /* AuthenticationViewController.h */,
+				907ED37615521731008AB2CA /* AuthenticationViewController.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		906E4ADC155C90E700604930 /* Main View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9003BAF91534F07F00667033 /* MainViewController.h */,
+				9003BAFA1534F07F00667033 /* MainViewController.m */,
+			);
+			name = "Main View Controller";
+			sourceTree = "<group>";
+		};
+		906E4ADD155C90F300604930 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				90A3DF22152E6F500061F6C5 /* MainStoryboard_iPhone.storyboard */,
+				90A3DF25152E6F500061F6C5 /* MainStoryboard_iPad.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		907ED398155306E1008AB2CA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				907ED395155306D9008AB2CA /* Util.h */,
+				907ED396155306D9008AB2CA /* Util.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		90A3DF01152E6F500061F6C5 = {
 			isa = PBXGroup;
 			children = (
@@ -145,10 +223,12 @@
 				90EE41D2154A5DD800E01DB0 /* Images */,
 				90EE41D0154A5DB600E01DB0 /* API */,
 				90EE41BC154A567400E01DB0 /* Progress Bar */,
-				90A3DF22152E6F500061F6C5 /* MainStoryboard_iPhone.storyboard */,
-				90A3DF25152E6F500061F6C5 /* MainStoryboard_iPad.storyboard */,
-				9003BAF91534F07F00667033 /* MainViewController.h */,
-				9003BAFA1534F07F00667033 /* MainViewController.m */,
+				907ED398155306E1008AB2CA /* Util */,
+				906E4ADD155C90F300604930 /* Storyboards */,
+				906E4ADC155C90E700604930 /* Main View Controller */,
+				906E4ADA155C90CC00604930 /* Assistant */,
+				902408EB155CA3C800C4C7BA /* Objects */,
+				906E4ADB155C90D600604930 /* Authentication */,
 				90A3DF17152E6F500061F6C5 /* Supporting Files */,
 			);
 			path = Time;
@@ -216,8 +296,10 @@
 		90EE41D2154A5DD800E01DB0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				907ED388155300F0008AB2CA /* wood.jpg */,
 				90774BEA154A758800549F37 /* selectedButtonBlue.png */,
 				90774BE7154A74D400549F37 /* buttonBlue.png */,
+				907ED38B15530181008AB2CA /* sandpaper.jpg */,
 				90EE41B31541D06600F3B553 /* ios_newsstand_wood_background_by_ebara-d45h8fy.png */,
 			);
 			name = Images;
@@ -302,6 +384,8 @@
 				90EE41C9154A569300E01DB0 /* circle.png in Resources */,
 				90774BE8154A74D400549F37 /* buttonBlue.png in Resources */,
 				90774BEB154A758800549F37 /* selectedButtonBlue.png in Resources */,
+				907ED389155300F0008AB2CA /* wood.jpg in Resources */,
+				907ED38C15530181008AB2CA /* sandpaper.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +428,10 @@
 				9003BAFB1534F07F00667033 /* MainViewController.m in Sources */,
 				90E650041540B29F00D4BCDF /* APIConstants.m in Sources */,
 				90E6500F1540B44B00D4BCDF /* API.m in Sources */,
+				907ED37715521731008AB2CA /* AuthenticationViewController.m in Sources */,
+				907ED397155306D9008AB2CA /* Util.m in Sources */,
+				906E4AD9155C90BF00604930 /* Assistant.m in Sources */,
+				902408E8155C9A2000C4C7BA /* Activity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,10 +552,14 @@
 		90A3DF44152E6F500061F6C5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nikil Viswanathan (HHE6W3F64C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nikil Viswanathan (HHE6W3F64C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Time/Time-Prefix.pch";
 				INFOPLIST_FILE = "Time/Time-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "466B440F-01FE-48C8-8337-80AED299A401";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "466B440F-01FE-48C8-8337-80AED299A401";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

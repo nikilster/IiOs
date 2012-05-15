@@ -30,13 +30,13 @@
     
     //Create the url from the string
     NSURL *requestURL = [NSURL URLWithString:loginURL];
-    NSLog(@"%@", requestURL);
+
     return requestURL;
 }
 
 + (NSDictionary *) makeAPICall:(NSDictionary *)arguments
 {
- 
+
     //TODO: do this async
     NSData *data = [NSData dataWithContentsOfURL:[API urlFromDictionaryArguments:arguments]];
 
@@ -68,7 +68,7 @@
 /*
     Login
  */
-+ (NSString *)loginWithEmail:(NSString *)emailAddress
++ (NSDictionary *)loginWithEmail:(NSString *)emailAddress
               andPassword:(NSString *)password
 {
     
@@ -80,19 +80,8 @@
     //Make request
     NSDictionary *result = [API makeAPICall:request];
     
-    //Check if it was a good login
-    NSString *loginResult = [result objectForKey:RESULT_LOGIN_RESULT];
-    if([loginResult intValue] == 1)
-    {    
-        //Get the auth token
-        NSString * authToken = [result objectForKey:RESULT_LOGIN_AUTH_TOKEN];
-        return authToken;
-    }
-    else {
-        NSLog(@"Error authenticating");
-        return @"";
-    }
-    
+    //return result
+    return result;
 }
 
 
@@ -152,4 +141,39 @@
     return [result boolValue];
 }
 
+
+
+/* 
+    Login Result 
+ */
+
++ (BOOL)successfulLogin:(NSDictionary *)loginResult
+{
+    //Check if it was a good login
+    NSString *result = [loginResult objectForKey:RESULT_LOGIN_RESULT];
+    return [result intValue] == 1;
+}
+
++ (NSString *)authTokenForSuccessfulLogin:(NSDictionary *)loginResult
+{
+    //Get the auth token
+    NSString *authToken = [loginResult objectForKey:RESULT_LOGIN_AUTH_TOKEN];
+    
+    //Make sure this is a valid result
+    if(!authToken) return @"Not a valid login result for this function";
+
+    //Message
+    return authToken;
+}
+
++ (NSString *)errorMessageForAuthentication:(NSDictionary *)loginResult
+{
+    //Get the message
+    NSString *errorMessage = [loginResult objectForKey:RESULT_LOGIN_ERROR_MESSAGE];
+    
+    //Make sure this is a invalid login
+    if(!errorMessage) return @"Not a invalid login result as needed for this";
+    
+    return errorMessage;
+}
 @end

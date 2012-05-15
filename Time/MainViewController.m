@@ -10,8 +10,11 @@
 #import "API.h"
 #import "APIConstants.h"
 #import "CircularProgressButton.h"
+#import "AuthenticationViewController.h"
+#import "Util.h"
+#import "Assistant.h"
 
-@interface MainViewController()
+@interface MainViewController() <AuthenticationDelegate>
 
 @property (strong, nonatomic) NSURL *url;
 @property (weak, nonatomic) IBOutlet UILabel *timer;
@@ -51,6 +54,33 @@
 #define BUTTON_SPACER 0
 #define BUTTON_OFFSET_X (320-BUTTON_WIDTH)/2
 #define BUTTON_OFFSET_Y 140
+
+#define SHOW_LOGIN_SEGUE @"Show Login"
+
+
+
+#pragma mark Auth Delegate
+
+/*
+    Successful authentication from the modal view controller
+*/
+- (void)successfulAuthentication:(NSString *)authToken
+{
+    //Set the auth token
+    self.authToken = authToken;
+    
+    //Save token
+    [Util saveToken:authToken];
+    
+    //Dismiss the delegate
+    [self dismissModalViewControllerAnimated:YES];
+    
+    //Setup the page
+    [self setupDisplay];
+    
+    //TODO: make sure this works
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDisplay) name:UIApplicationDidBecomeActiveNotification object:nil];
+}
 
 
 #pragma mark - Timer Helper methods
@@ -127,6 +157,19 @@
 
 #pragma mark - API Methods
 
+
+//Temporarily (change)
+- (NSDictionary *)percentageForActivityId:(NSString *)activityId
+{
+
+    for(NSDictionary *percentage in self.percentages)
+        if([activityId isEqualToString:[percentage objectForKey:PERCENTAGE_ACTIVITY_ID]])
+            return percentage;
+    
+    //Should never happen
+    return nil;
+}
+
 /*
     Start Activity
  
@@ -136,11 +179,16 @@
 
 - (void)startActivity:(int)activityIndex
 {
-    
-    NSString *activityId = [[self.activities objectAtIndex:activityIndex] objectForKey:ACTIVITY_ID];
-    
+    //Get the Activity Id
+    NSDictionary *activity = [self.activities objectAtIndex:activityIndex];
+    NSString *activityId = [activity objectForKey:ACTIVITY_ID];
+    //For Now
+    NSDictionary *activityWithInfo = [self percentageForActivityId:activityId];
+
+    //Talk to the API
     NSDictionary *response = [API startActivity:activityId withAuthToken:self.authToken];
     
+    //Response from API
     BOOL result = [(NSNumber *)[response objectForKey:RESULT_START_ACTIVITY] boolValue];
     
     //check
@@ -150,20 +198,25 @@
         return;
     }
     
-    //Good! - Success starting activity!    
+    //Good!
+    //Success starting activity!  
+    //Set the current event
     self.currentEvent = [response objectForKey:RESULT_CURRENT_RUNNING_EVENT];
     
     //This will proably never happen (only if someons on the same account hit clicks stop between the two function calls in the apidb
     //Set to nice null
-    if([self.currentEvent isKindOfClass:[NSNull class]])//[
+    if([self.currentEvent isKindOfClass:[NSNull class]])
         self.currentEvent = nil;
     
     //Setup
     NSString *activityName = [[self.activities objectAtIndex:activityIndex] objectForKey:ACTIVITY_NAME];
     self.currentEventLabel.text = activityName;
     
+    //Start Timer
     [self beginTimer:[NSDate date]];
-        
+    
+    //Start Congratulations
+    [Assistant startActivity:activityWithInfo];
 }
 
 - (IBAction)finishClicked {
@@ -188,6 +241,9 @@
     //Set label
     self.currentEventLabel.text = @"I am doing nothing";
     
+    //Clear Congratulations
+    [Assistant clearCongratulations]; 
+
    }
 
 /*
@@ -199,7 +255,7 @@
 - (void)activityClicked:(UIButton *)sender
 {
     int activityIndex = [sender tag];
-    NSLog(@"Click on the outmost level");
+
     //Start activity
     [self startActivity:activityIndex];
 }
@@ -331,6 +387,10 @@
     CGFloat contentWidth = self.view.frame.size.width;
     CGFloat contentHeight = BUTTON_OFFSET_Y + numActivities*(BUTTON_HEIGHT + BUTTON_SPACER);
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
+    //Set the wood image
+    //This is so the image scrolls as the controls
+    self.scrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wood.jpg"]];
+
 }
 
 
@@ -341,8 +401,13 @@
     Sets upt he display to mimic the current version of the site (what is currently going on)
     activities, timer, current events progress behavior indicatorse
 */
-- (void)setupDisplay:(NSDictionary *)currentStatus
+- (void)setupDisplay
 {
+    
+    NSLog(@"Setting up display!");
+    
+    NSDictionary *currentStatus = [API getInformation:self.authToken];    
+
     //Get the data
     self.activities = [currentStatus objectForKey:RESULT_DATA_ACTIVITIES];
     //NSArray *completedEvents = [currentStatus objectForKey:RESULT_DATA_COMPLETED_EVENTS];
@@ -358,36 +423,50 @@
     [self startCurrentEvent:self.currentEvent];
 }
 
-
-/*
-    TryLogin
- 
-    Logs in and gets the current information
-*/
-- (void)tryLogin
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //Save the auth token
-    //todo: check if incorrect information
-    self.authToken = [API loginWithEmail:@"test@gmail.com" andPassword:@"Hithere"];
-    
-    NSDictionary *currentStatus = [API getInformation:self.authToken];
-    
-    [self setupDisplay:currentStatus];
+    if([segue.identifier isEqualToString:SHOW_LOGIN_SEGUE])
+    {
+        //Set the delegate
+        ((AuthenticationViewController *)[segue destinationViewController]).delegate = self;
+    }
 }
 
+- (void)updateInfo
+{
+      
+    //TODO: We should check if this is a valid auth token and handle
+    if(self.authToken)
+    {
+        [self setupDisplay];
+    }
+    
+    //From NS User Defaults
+    //Also assign
+    else if(self.authToken = [Util authTokenFromDefaults])
+    {
+        [self setupDisplay];
+    }
+    
+    //Login Screen
+    else {
+        [self performSegueWithIdentifier:SHOW_LOGIN_SEGUE sender:self];
+    }
+
+}
 
 #pragma mark - View lifecycle
 
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-        
-    [self tryLogin];
+    [super viewDidAppear:animated];
+    
+    NSLog(@"[before test run] Current Scheduled Notifications: %@", [[UIApplication sharedApplication] scheduledLocalNotifications]);
+
+    //TODO: check for internet and if not show a message
+    [self updateInfo];
+
 }
-
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

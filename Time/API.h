@@ -11,17 +11,25 @@
 @interface API : NSObject
 
 //Login
-+ (NSString *)loginWithEmail:(NSString *)emailAddress
++ (NSDictionary *)loginWithEmail:(NSString *)emailAddress
                  andPassword:(NSString *)password;
 
 //Get Information
 + (NSDictionary *)getInformation:(NSString *)authToken;
 
 //Start Activity
-+(NSDictionary *)startActivity:(NSString *)activityId
++ (NSDictionary *)startActivity:(NSString *)activityId
              withAuthToken:(NSString *)authToken;
 
 //Stop Activity
 +(BOOL)finishEvent:(NSString *)eventId withAuthToken:(NSString *)authToken;
 
+//Checks success
++ (BOOL)successfulLogin:(NSDictionary *)loginResult;
+
+//Returns authtoken
++ (NSString *)authTokenForSuccessfulLogin:(NSDictionary *)loginResult;
+
+//Error message
++ (NSString *)errorMessageForAuthentication:(NSDictionary *)loginResult;
 @end

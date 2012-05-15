@@ -6,6 +6,83 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Authentication View Controller-->
+        <scene sceneID="2tX-JG-tfc">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XfQ-Tc-v5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="eKt-d3-gS5" customClass="AuthenticationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Kf-nb-SB2">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="Nlk-fe-TdW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.19374114240000001" green="0.65884626130000001" blue="1" alpha="0.87" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Visualize" id="dht-bd-avF"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="wood.jpg" id="HhB-mh-kof">
+                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="349-Xu-5XM">
+                                <rect key="frame" x="65" y="200" width="191" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Login" backgroundImage="buttonBlue.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="selectedButtonBlue.png"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="finishClicked" destination="2" eventType="touchUpInside" id="1Cp-2u-jdX"/>
+                                    <action selector="loginClicked" destination="eKt-d3-gS5" eventType="touchUpInside" id="hg2-aJ-X9S"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" id="RIP-YA-nxT">
+                                <rect key="frame" x="70" y="155" width="180" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" id="Seh-hA-6RU">
+                                <rect key="frame" x="70" y="112" width="180" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Welcome to Visualize!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="UWS-PZ-KeM">
+                                <rect key="frame" x="70" y="63" width="180" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fIP-kV-six">
+                                <rect key="frame" x="70" y="92" width="180" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.19374114240000001" green="0.65884626130000001" blue="1" alpha="0.87" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="email" destination="Seh-hA-6RU" id="2E0-ME-nEq"/>
+                        <outlet property="loginButton" destination="349-Xu-5XM" id="OtJ-Ph-3Qp"/>
+                        <outlet property="loginError" destination="fIP-kV-six" id="KbH-E8-H1T"/>
+                        <outlet property="password" destination="RIP-YA-nxT" id="FOV-oo-ky5"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="758" y="52"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="5">
             <objects>
@@ -15,7 +92,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ios_newsstand_wood_background_by_ebara-d45h8fy.png" id="v8e-Zf-2yX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="wood.jpg" id="v8e-Zf-2yX">
                                 <rect key="frame" x="0.0" y="44" width="325" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -58,7 +135,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="I am doing nothing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="j4e-gY-H7y">
-                                <rect key="frame" x="36" y="55" width="107" height="21"/>
+                                <rect key="frame" x="29" y="55" width="107" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -71,6 +148,7 @@
                         <outlet property="currentEventLabel" destination="j4e-gY-H7y" id="Xbd-nl-nd8"/>
                         <outlet property="scrollView" destination="axZ-7D-NzD" id="Hvp-ww-tTQ"/>
                         <outlet property="timer" destination="6h8-hv-GsL" id="q4U-uf-kmI"/>
+                        <segue destination="eKt-d3-gS5" kind="modal" identifier="Show Login" id="JVu-OT-Eo6"/>
                     </connections>
                 </viewController>
             </objects>
@@ -78,10 +156,19 @@
     </scenes>
     <resources>
         <image name="buttonBlue.png" width="216" height="56"/>
-        <image name="ios_newsstand_wood_background_by_ebara-d45h8fy.png" width="1536" height="800"/>
         <image name="selectedButtonBlue.png" width="216" height="56"/>
+        <image name="wood.jpg" width="640" height="960"/>
     </resources>
     <classes>
+        <class className="AuthenticationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthenticationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginError" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+            </relationships>
+        </class>
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>

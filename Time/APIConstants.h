@@ -11,7 +11,7 @@
 //API Constants
 
 //URL
-#define API_URL @"http://67.23.22.130/api/api.php?"
+#define API_URL @"http://69.164.201.32/api/api.php?"
 
 //Arguments namesfor the get / Post request
 #define API_ARG_FUNCTION    @"f"
@@ -27,7 +27,6 @@
 #define API_FUNCTION_START_ACTIVITY     @"startActivity"
 #define API_FUNCTION_STOP_EVENT         @"stopEvent"
 
-
 //Result keys
 #define RESULT_KEY_API_RESULT           @"apiResult"
 #define RESULT_KEY_DATA                 @"data"
@@ -39,6 +38,7 @@
 //Login
 #define RESULT_LOGIN_RESULT             @"result"
 #define RESULT_LOGIN_AUTH_TOKEN         @"authToken"
+#define RESULT_LOGIN_ERROR_MESSAGE      @"message"
 
 //Get information
 #define RESULT_DATA_ACTIVITIES          @"activities"
