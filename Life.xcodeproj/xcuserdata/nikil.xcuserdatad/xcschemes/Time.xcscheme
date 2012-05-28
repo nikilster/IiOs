@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "90A3DF0B152E6F500061F6C5"
-               BuildableName = "Time.app"
-               BlueprintName = "Time"
-               ReferencedContainer = "container:Time.xcodeproj">
+               BuildableName = "Life.app"
+               BlueprintName = "Life"
+               ReferencedContainer = "container:Life.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "90A3DF2F152E6F500061F6C5"
-               BuildableName = "TimeTests.octest"
-               BlueprintName = "TimeTests"
-               ReferencedContainer = "container:Time.xcodeproj">
+               BuildableName = "LifeTests.octest"
+               BlueprintName = "LifeTests"
+               ReferencedContainer = "container:Life.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "90A3DF0B152E6F500061F6C5"
-            BuildableName = "Time.app"
-            BlueprintName = "Time"
-            ReferencedContainer = "container:Time.xcodeproj">
+            BuildableName = "Life.app"
+            BlueprintName = "Life"
+            ReferencedContainer = "container:Life.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "90A3DF0B152E6F500061F6C5"
-            BuildableName = "Time.app"
-            BlueprintName = "Time"
-            ReferencedContainer = "container:Time.xcodeproj">
+            BuildableName = "Life.app"
+            BlueprintName = "Life"
+            ReferencedContainer = "container:Life.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "90A3DF0B152E6F500061F6C5"
-            BuildableName = "Time.app"
-            BlueprintName = "Time"
-            ReferencedContainer = "container:Time.xcodeproj">
+            BuildableName = "Life.app"
+            BlueprintName = "Life"
+            ReferencedContainer = "container:Life.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -91,6 +91,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Life"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

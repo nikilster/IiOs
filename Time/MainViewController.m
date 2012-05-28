@@ -13,8 +13,10 @@
 #import "AuthenticationViewController.h"
 #import "Util.h"
 #import "Assistant.h"
+#import "ActivityReminder.h"
+#import "TimeAppDelegate.h"
 
-@interface MainViewController() <AuthenticationDelegate>
+@interface MainViewController() <AuthenticationDelegate, ActivityReminderDelegate>
 
 @property (strong, nonatomic) NSURL *url;
 @property (weak, nonatomic) IBOutlet UILabel *timer;
@@ -35,6 +37,7 @@
 @property (strong, nonatomic) NSDictionary *currentEvent;
 @property (strong, nonatomic) NSArray *percentages;
 
+@property (strong, nonatomic) ActivityReminder * activityReminder;
 @end
 
 @implementation MainViewController
@@ -48,8 +51,9 @@
 @synthesize currentEvent = _currentEvent;
 @synthesize authToken = _authToken;
 @synthesize percentages = _percentages;
+@synthesize activityReminder = _activityReminder;
 
-#define BUTTON_HEIGHT 120
+#define BUTTON_HEIGHT 100
 #define BUTTON_WIDTH 250
 #define BUTTON_SPACER 0
 #define BUTTON_OFFSET_X (320-BUTTON_WIDTH)/2
@@ -58,6 +62,21 @@
 #define SHOW_LOGIN_SEGUE @"Show Login"
 
 
+#pragma mark Activity Reminder Delegate
+
+/*
+    Called on location change
+ */
+- (void)movedLocation
+{
+    //If there is a current event running
+    if(self.currentEvent)
+    {
+        NSString * activityName = @"Exercise";
+        NSString * notification = [@"Hey, are you still " stringByAppendingFormat:@"%@?", activityName];
+        [Assistant presentImmediateNotification:notification];
+    }
+}
 
 #pragma mark Auth Delegate
 
@@ -76,7 +95,7 @@
     [self dismissModalViewControllerAnimated:YES];
     
     //Setup the page
-    [self setupDisplay];
+    [self updateInfo];
     
     //TODO: make sure this works
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDisplay) name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -401,22 +420,19 @@
     Sets upt he display to mimic the current version of the site (what is currently going on)
     activities, timer, current events progress behavior indicatorse
 */
-- (void)setupDisplay
+- (void)setupDisplay:(NSDictionary *)currentData
 {
-    
     NSLog(@"Setting up display!");
     
-    NSDictionary *currentStatus = [API getInformation:self.authToken];    
-
     //Get the data
-    self.activities = [currentStatus objectForKey:RESULT_DATA_ACTIVITIES];
+    self.activities = [currentData objectForKey:RESULT_DATA_ACTIVITIES];
     //NSArray *completedEvents = [currentStatus objectForKey:RESULT_DATA_COMPLETED_EVENTS];
-    self.currentEvent = [currentStatus objectForKey:RESULT_DATA_CURRENT_EVENT];
+    self.currentEvent = [currentData objectForKey:RESULT_DATA_CURRENT_EVENT];
     //Translate to iOs Nil
     if([self.currentEvent isKindOfClass:[NSNull class]])
         self.currentEvent = nil;
     
-    self.percentages = [currentStatus objectForKey:RESULT_DATA_PERCENTAGES];
+    self.percentages = [currentData objectForKey:RESULT_DATA_PERCENTAGES];
     
     [self setupScrollView:[self.activities count]];
     [self addActivities:self.activities];
@@ -432,23 +448,69 @@
     }
 }
 
+/*
+    Updates the device token on server
+*/
+- (void)updateDeviceToken
+{
+    TimeAppDelegate *delegate = (TimeAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString * pushToken = [delegate deviceToken];
+    
+    
+    //NSLog(@"trying to update device token.  Push Token: %@ and Auth Token = %@", pushToken, self.authToken);
+
+    //Need the push token and the auth token
+    if(pushToken && self.authToken)
+    {
+        
+        NSLog(@"Updating push token!");
+        dispatch_queue_t pushQueue = dispatch_queue_create("update token", NULL);
+        
+        dispatch_async(pushQueue, ^{
+
+            //QUESTION: should use the authToken (without the property?)
+            [API setPushToken:pushToken withAuthToken:self.authToken]; 
+        });
+    }
+}
+
 - (void)updateInfo
 {
       
     //TODO: We should check if this is a valid auth token and handle
-    if(self.authToken)
+    //If we have the auth token or got it just now from defaults
+    //(Also assign)
+    if(self.authToken || (self.authToken = [Util authTokenFromDefaults]))
     {
-        [self setupDisplay];
+    
+        //CS193p See Slides for Lecture 10
+        //Create the Queue
+        dispatch_queue_t updateQueue = dispatch_queue_create("update data", NULL);
+        
+        //Dispatch Async
+        dispatch_async(updateQueue, ^{
+           
+            NSLog(@"getting the data!");
+            //Get data from web server
+            NSDictionary *currentData = [API getInformation:self.authToken];    
+
+            //Get the main queue and update the ui
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                //Update the UI
+                [self setupDisplay:currentData];
+            });
+        });
+        
+        //Release the queue
+        dispatch_release(updateQueue);
+        
+        
+        [self updateDeviceToken];
     }
     
-    //From NS User Defaults
-    //Also assign
-    else if(self.authToken = [Util authTokenFromDefaults])
-    {
-        [self setupDisplay];
-    }
-    
-    //Login Screen
+    //Not logged in 
+    //Show Login Screen
     else {
         [self performSegueWithIdentifier:SHOW_LOGIN_SEGUE sender:self];
     }
@@ -456,6 +518,23 @@
 }
 
 #pragma mark - View lifecycle
+
+- (void)viewDidLoad
+{
+    
+    //TODO: update view!
+    //http://stackoverflow.com/questions/5277940/why-does-viewwillappear-not-get-called-when-an-app-comes-back-from-the-backgroun
+
+    //TODO: see if we need both this and initreminder
+    self.activityReminder = [[ActivityReminder alloc] init];
+    
+    //Set the Delegate
+    self.activityReminder.delegate = self;
+    
+    //And this
+    [self.activityReminder initReminder];
+    
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {

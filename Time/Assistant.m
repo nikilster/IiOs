@@ -76,4 +76,20 @@
     for(UILocalNotification *notification in existingNotifications)
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
 }
+
++ (void)presentImmediateNotification:(NSString *)message
+{
+    //Create
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+
+    if(notification == nil) return;
+    
+    //Data
+    notification.alertBody = message;
+    notification.alertAction = @"See Activity";
+    
+    //Present
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    
+}
 @end

@@ -142,6 +142,24 @@
 }
 
 
+/*
+    Sets the push
+ 
+ */
++(BOOL)setPushToken:(NSString *)pushToken withAuthToken:(NSString *)authToken
+{
+    //Set Parameters
+    NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
+                             API_FUNCTION_SET_PUSH_TOKEN, API_ARG_FUNCTION,
+                             pushToken, API_ARG_PUSH_TOKEN,
+                             authToken, API_ARG_AUTH_TOKEN, nil];
+    
+    //Make Request
+    NSNumber *result = (NSNumber *)[API makeAPICall:request];
+    
+    //NSCF Boolean
+    return [result boolValue];
+}
 
 /* 
     Login Result 

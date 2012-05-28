@@ -7,17 +7,62 @@
 //
 
 #import "TimeAppDelegate.h"
+//QUESTION: what is the best way to do p device passing
+#import "MainViewController.h"
 
 @implementation TimeAppDelegate
 
 @synthesize window = _window;
+@synthesize deviceToken = _deviceToken;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    // Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+        
     // Override point for customization after application launch.
     return YES;
 }
-							
+	
+
+/*
+    ======= =-Start Push Notifications ========
+ */
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    //combined as string!
+    NSLog(@"Device token: %@", deviceToken);
+    NSString* combinedPushToken = [deviceToken description];
+    //NSLog(@"Push Token = %@", pushToken);
+	combinedPushToken = [combinedPushToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+	combinedPushToken = [combinedPushToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //NSLog(@"Push token cleaned = %@", pushToken);
+    
+    self.deviceToken = combinedPushToken;
+
+    //QUESTION!!! is this the right way to do this?
+    if([self.window.rootViewController isKindOfClass:[MainViewController class]])
+    {
+        [(MainViewController *)self.window.rootViewController updateDeviceToken];
+    }
+}
+
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Error with push notification registration: %@", error);
+}
+
+
+/*
+    ========-  End Push Notification -========
+ */
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*
@@ -46,6 +91,7 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

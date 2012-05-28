@@ -32,4 +32,7 @@
 
 //Error message
 + (NSString *)errorMessageForAuthentication:(NSDictionary *)loginResult;
+
+//Sets Push Token
++ (BOOL)setPushToken:(NSString *)pushToken withAuthToken:(NSString *)authToken;
 @end

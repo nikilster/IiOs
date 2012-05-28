@@ -16,4 +16,5 @@
 //Clear
 + (void)clearCongratulations;
 
++ (void)presentImmediateNotification:(NSString *)message;
 @end

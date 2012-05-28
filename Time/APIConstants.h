@@ -20,12 +20,14 @@
 #define API_ARG_AUTH_TOKEN  @"authToken"
 #define API_ARG_ACTIVITY_ID @"aid"
 #define API_ARG_EVENT_ID    @"eid"
+#define API_ARG_PUSH_TOKEN  @"pushToken"
 
 //Api function names
 #define API_FUNCTION_LOGIN              @"login"
 #define API_FUNCTION_GET_INFORMATION    @"getInformation"
 #define API_FUNCTION_START_ACTIVITY     @"startActivity"
 #define API_FUNCTION_STOP_EVENT         @"stopEvent"
+#define API_FUNCTION_SET_PUSH_TOKEN     @"setPushToken"
 
 //Result keys
 #define RESULT_KEY_API_RESULT           @"apiResult"

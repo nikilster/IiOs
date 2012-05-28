@@ -10,4 +10,6 @@
 
 @interface MainViewController : UIViewController
 
+//Sets the push token
+- (void)updateDeviceToken;
 @end
